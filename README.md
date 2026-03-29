@@ -1,11 +1,37 @@
-# 🦞 OpenClaw — Personal AI Assistant
+# 🦞 FlashClaw — Aave Flashloan Arbitrage Bot
 
 <p align="center">
     <picture>
         <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/openclaw-logo-text-dark.svg">
-        <img src="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/openclaw-logo-text.svg" alt="OpenClaw" width="500">
+        <img src="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/openclaw-logo-text.svg" alt="FlashClaw" width="500">
     </picture>
 </p>
+
+<p align="center">
+  <strong>High-Frequency DeFi Arbitrage Powered by OpenClaw</strong>
+</p>
+
+> **FlashClaw** is a fork of [OpenClaw](https://github.com/openclaw/openclaw) enhanced with Aave V3 flashloan arbitrage capabilities. It scans multiple DEXes every 100 milliseconds for profitable arbitrage opportunities and executes them automatically using flashloans.
+
+## 🚀 Quick Links
+
+- [Arbitrage Documentation](./FLASHLOAN_ARBITRAGE.md) - Complete arbitrage bot documentation
+- [Quick Start Guide](./QUICKSTART.md) - Get started in 5 minutes
+- [Environment Setup](./.env.arbitrage.example) - Configuration template
+- [Smart Contract](./contracts/FlashClawArbitrage.sol) - Solidity implementation
+
+## ⚡ Key Features
+
+- **100ms Scanning**: Ultra-high-frequency price monitoring
+- **Multi-DEX Support**: Uniswap V2, Sushiswap, and more
+- **Aave Flashloans**: Zero-capital arbitrage execution
+- **Gas Optimization**: Smart gas price management
+- **Profit Tracking**: Comprehensive statistics and reporting
+- **Safety Controls**: Configurable limits and emergency stops
+
+---
+
+# Original OpenClaw README
 
 <p align="center">
   <strong>EXFOLIATE! EXFOLIATE!</strong>
