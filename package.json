@@ -1,20 +1,20 @@
 {
-  "name": "openclaw",
-  "version": "2026.3.29",
-  "description": "Multi-channel AI gateway with extensible messaging integrations",
-  "keywords": [],
-  "homepage": "https://github.com/openclaw/openclaw#readme",
+  "name": "flashclaw",
+  "version": "1.0.0",
+  "description": "High-frequency DeFi arbitrage bot powered by Aave flashloans - scans DEXes every 100ms for profitable opportunities",
+  "keywords": ["flashloan", "arbitrage", "defi", "aave", "dex", "ethereum", "trading"],
+  "homepage": "https://github.com/cosmic-hydra/flashclaw#readme",
   "bugs": {
-    "url": "https://github.com/openclaw/openclaw/issues"
+    "url": "https://github.com/cosmic-hydra/flashclaw/issues"
   },
   "license": "MIT",
   "author": "",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/openclaw/openclaw.git"
+    "url": "git+https://github.com/cosmic-hydra/flashclaw.git"
   },
   "bin": {
-    "openclaw": "openclaw.mjs"
+    "flashclaw": "openclaw.mjs"
   },
   "directories": {
     "doc": "docs",

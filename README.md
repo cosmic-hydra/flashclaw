@@ -1,53 +1,124 @@
-# 🦞 FlashClaw — Aave Flashloan Arbitrage Bot
+# 🦞 FlashClaw — High-Frequency Aave Flashloan Arbitrage Bot
 
 <p align="center">
-    <picture>
-        <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/openclaw-logo-text-dark.svg">
-        <img src="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/openclaw-logo-text.svg" alt="FlashClaw" width="500">
-    </picture>
+  <strong>Automated DeFi Arbitrage Every 100ms</strong>
 </p>
 
-<p align="center">
-  <strong>High-Frequency DeFi Arbitrage Powered by OpenClaw</strong>
-</p>
+> **FlashClaw** is a specialized DeFi arbitrage bot that scans multiple DEXes every 100 milliseconds for profitable arbitrage opportunities and executes them automatically using Aave V5 flashloans.
 
-> **FlashClaw** is a fork of [OpenClaw](https://github.com/openclaw/openclaw) enhanced with Aave V3 flashloan arbitrage capabilities. It scans multiple DEXes every 100 milliseconds for profitable arbitrage opportunities and executes them automatically using flashloans.
+## 🚀 Quick Start
 
-## 🚀 Quick Links
+1. **Install dependencies:**
+```bash
+npm install -g pnpm
+pnpm install
+pnpm build
+```
 
-- [Arbitrage Documentation](./FLASHLOAN_ARBITRAGE.md) - Complete arbitrage bot documentation
-- [Quick Start Guide](./QUICKSTART.md) - Get started in 5 minutes
-- [Environment Setup](./.env.arbitrage.example) - Configuration template
-- [Smart Contract](./contracts/FlashClawArbitrage.sol) - Solidity implementation
+2. **Configure environment:**
+```bash
+# Edit .env file with your credentials
+nano .env
+```
+
+Required configuration:
+- `PROFIT_WALLET_ADDRESS` - Where profits will be sent
+- `WALLET_SECRET_KEY` - Your private key for signing transactions
+- `AAVE_V5_POOL_ADDRESS` - Aave V5 pool contract address
+- `ETH_RPC_URL` - Your Ethereum RPC endpoint
+
+3. **Start the bot:**
+```bash
+flashclaw arbitrage start
+```
 
 ## ⚡ Key Features
 
-- **100ms Scanning**: Ultra-high-frequency price monitoring
-- **Multi-DEX Support**: Uniswap V2, Sushiswap, and more
-- **Aave Flashloans**: Zero-capital arbitrage execution
-- **Gas Optimization**: Smart gas price management
-- **Profit Tracking**: Comprehensive statistics and reporting
-- **Safety Controls**: Configurable limits and emergency stops
+- **100ms Scanning**: Ultra-high-frequency price monitoring every 100 milliseconds
+- **Aave V5 Flashloans**: Executes arbitrage using the latest Aave V5 protocol
+- **Multi-DEX Support**: Monitors Uniswap V2, Sushiswap, and more
+- **Automated Execution**: Automatically executes profitable trades
+- **Profit Tracking**: Real-time statistics and comprehensive reporting
+- **Gas Optimization**: Smart gas price management and cost calculation
+- **Safety Controls**: Configurable profit thresholds and gas limits
 
----
+## 📋 Configuration
 
-# Original OpenClaw README
+### Required Environment Variables
 
-<p align="center">
-  <strong>EXFOLIATE! EXFOLIATE!</strong>
-</p>
+Edit the `.env` file in the root directory:
 
-<p align="center">
-  <a href="https://github.com/openclaw/openclaw/actions/workflows/ci.yml?branch=main"><img src="https://img.shields.io/github/actions/workflow/status/openclaw/openclaw/ci.yml?branch=main&style=for-the-badge" alt="CI status"></a>
-  <a href="https://github.com/openclaw/openclaw/releases"><img src="https://img.shields.io/github/v/release/openclaw/openclaw?include_prereleases&style=for-the-badge" alt="GitHub release"></a>
-  <a href="https://discord.gg/clawd"><img src="https://img.shields.io/discord/1456350064065904867?label=Discord&logo=discord&logoColor=white&color=5865F2&style=for-the-badge" alt="Discord"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" alt="MIT License"></a>
-</p>
+```bash
+# Your profit wallet address
+PROFIT_WALLET_ADDRESS=0xYourWalletAddress
 
-**OpenClaw** is a _personal AI assistant_ you run on your own devices.
-It answers you on the channels you already use (WhatsApp, Telegram, Slack, Discord, Google Chat, Signal, iMessage, BlueBubbles, IRC, Microsoft Teams, Matrix, Feishu, LINE, Mattermost, Nextcloud Talk, Nostr, Synology Chat, Tlon, Twitch, Zalo, Zalo Personal, WeChat, WebChat). It can speak and listen on macOS/iOS/Android, and can render a live Canvas you control. The Gateway is just the control plane — the product is the assistant.
+# Your wallet private key (KEEP SECURE!)
+WALLET_SECRET_KEY=0xYourPrivateKey
 
-If you want a personal, single-user assistant that feels local, fast, and always-on, this is it.
+# Aave V5 Pool address for flashloans
+AAVE_V5_POOL_ADDRESS=0xAaveV5PoolAddress
+
+# Ethereum RPC endpoint
+ETH_RPC_URL=https://eth-mainnet.g.alchemy.com/v2/YOUR_API_KEY
+```
+
+### Optional Configuration
+
+```bash
+# Scan interval in milliseconds (default: 100)
+SCAN_INTERVAL=100
+
+# Minimum profit threshold in wei (default: 0.01 ETH)
+MIN_PROFIT=10000000000000000
+
+# Maximum gas price in gwei (default: 100)
+MAX_GAS_PRICE=100000000000
+```
+
+## 🎯 How It Works
+
+1. **Price Scanning (100ms)**: Continuously monitors DEX prices every 100 milliseconds
+2. **Opportunity Detection**: Identifies profitable arbitrage opportunities across DEXes
+3. **Profitability Check**: Calculates expected profit after gas costs
+4. **Flashloan Execution**: Requests flashloan from Aave V5 pool
+5. **Arbitrage Trade**: Executes buy/sell across DEXes
+6. **Profit Capture**: Repays flashloan and sends profit to your wallet
+
+## 📊 Commands
+
+```bash
+# Start the arbitrage bot
+flashclaw arbitrage start
+
+# Check bot status and statistics
+flashclaw arbitrage status
+
+# View current configuration
+flashclaw arbitrage config
+
+# Stop the bot (Ctrl+C)
+```
+
+## 🔒 Security
+
+⚠️ **CRITICAL SECURITY NOTES:**
+
+- Never share your `WALLET_SECRET_KEY` with anyone
+- The `.env` file is gitignored - never commit it to version control
+- Always test on testnet before using mainnet
+- Start with small profit thresholds to test the system
+- Monitor gas prices to avoid unprofitable trades
+
+## 📚 Documentation
+
+- [Complete Arbitrage Documentation](./FLASHLOAN_ARBITRAGE.md)
+- [Quick Start Guide](./QUICKSTART.md)
+- [Smart Contract](./contracts/FlashClawArbitrage.sol)
+- [Example Usage](./examples/)
+
+## ⚠️ Disclaimer
+
+Cryptocurrency trading involves substantial risk of loss. FlashClaw is provided as-is for educational purposes. Always test thoroughly on testnets before using real funds. The authors are not responsible for any financial losses.
 
 [Website](https://openclaw.ai) · [Docs](https://docs.openclaw.ai) · [Vision](VISION.md) · [DeepWiki](https://deepwiki.com/openclaw/openclaw) · [Getting Started](https://docs.openclaw.ai/start/getting-started) · [Updating](https://docs.openclaw.ai/install/updating) · [Showcase](https://docs.openclaw.ai/start/showcase) · [FAQ](https://docs.openclaw.ai/help/faq) · [Onboarding](https://docs.openclaw.ai/start/wizard) · [Nix](https://github.com/openclaw/nix-openclaw) · [Docker](https://docs.openclaw.ai/install/docker) · [Discord](https://discord.gg/clawd)
 
